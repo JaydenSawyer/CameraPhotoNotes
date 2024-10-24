@@ -7,13 +7,22 @@
 
 import UIKit
 
-class ViewController: UIViewController {
-
+class ViewController: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
+    @IBOutlet weak var imagevView: UIImageView!
+    let imagePicker = UIImagePickerController()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        imagePicker.delegate = self
+            }
+
+    @IBAction func photoAction(_ sender: UIButton) {
+        imagePicker.sourceType = UIImagePickerController.SourceType.photoLibrary
+        present(imagePicker, animated: true, completion: nil)
     }
-
-
+    @IBAction func cameraAction(_ sender: UIButton) {
+        
+    }
+    
 }
 
